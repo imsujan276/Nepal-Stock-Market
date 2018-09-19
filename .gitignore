@@ -1,0 +1,9 @@
+.vscode/
+.sourcemaps/
+node_modules/
+tmp/
+temp/
+plugins/
+plugins/android.json
+plugins/ios.json
+www/

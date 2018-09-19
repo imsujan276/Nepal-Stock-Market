@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Nepal Stock Market 
+      <span style="float:right;font-size: 12px;margin-top: 10px;">{{today | date :"mediumDate"}}</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    
+    <ion-searchbar class="searchbar" (ionInput)="getItems($event)" placeholder="Search"></ion-searchbar>
+
+    <ion-list [virtualScroll]="data" [approxItemHeight]="'88px'">
+        <ion-card *virtualItem="let d" (click)="stockDetail(d)">
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                  <ion-col col-12>
+                      <p style="font-weight: 700;"> {{d.companyName}} </p>
+                  </ion-col>
+                  <ion-col col-8>
+                    <span style="font-size: 12px; font-weight: 500;"> Closing Price: {{d.closingPrice}} </span>
+                  </ion-col>
+                  <ion-col col-4>
+                    <span style="font-size: 12px; font-weight: 500;" [class]="(d.difference < 0)? 'down' :'up'"> 
+                      <!-- {{d.difference | showDifference}} -->
+                      {{d.difference}}
+                    </span>
+                  </ion-col>
+                  <!-- <ion-col col-12>
+                    <span style="float:right;font-size: 12px;">{{today | date :"mediumDate"}}</span>
+                  </ion-col> -->
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+    </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,33 @@
+page-home {
+.up{
+    color: #00f;
+}
+.up::before{
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 10px solid #00f;
+    clear: both;
+}
+
+.down{
+    color: #f00;
+}
+.down::before{
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #f00;
+    clear: both;
+}
+}

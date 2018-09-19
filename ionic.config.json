@@ -1,0 +1,13 @@
+{
+  "name": "NSM",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path":"/data",
+      "proxyUrl": "https://nepse-data-api.herokuapp.com/data/todaysprice"
+    }
+  ]
+}
